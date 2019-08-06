@@ -3,8 +3,6 @@ package com.base.springboot.exception;
 import com.base.springboot.enums.CommonExceptionEnums;
 
 /**
- * @Title: BaseException
- * @Package: com.base.springboot.exception
  * @Description: 公共异常类
  * @Author: monkjavaer
  * @Date: 2019/8/6 18:05

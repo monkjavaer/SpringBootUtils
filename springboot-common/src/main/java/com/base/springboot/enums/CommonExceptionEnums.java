@@ -1,9 +1,7 @@
 package com.base.springboot.enums;
 
 /**
- * @Title: CommonExceptionEnums
- * @Package: com.base.springboot.enums
- * @Description: TODO（添加描述）
+ * @Description: 公共异常枚举
  * @Author: monkjavaer
  * @Date: 2019/8/6 18:42
  * @Version: V1.0
