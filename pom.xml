@@ -222,7 +222,7 @@
             </dependency>
 
 
-            <!-- logback used by gis_common/gis_geo_base-->
+            <!-- logback -->
             <dependency>
                 <groupId>org.slf4j</groupId>
                 <artifactId>slf4j-api</artifactId>
