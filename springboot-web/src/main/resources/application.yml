@@ -20,9 +20,9 @@ server:
     min-response-size: 2048
 
 mybatis:
-  type-aliases-package: com.ceiec.gis.springboot.po
+  type-aliases-package: com.base.springboot.po
   mapper-locations: classpath*:mappers/*.xml
-  type-handlers-package: com.ceiec.gis.springboot.typehandler
+  type-handlers-package: com.base.springboot.typehandler
 
 mapper:
   mappers:
@@ -33,12 +33,4 @@ pagehelper:
   reasonable: true
   supportMethodsArguments: true
   params: count=countSql
-
-#mybatis:
-#  mapperLocations: classpath*:mappers/*.xml
-#  type-handlers-package: com.ceiec.gis.springboot.typehandler
-#pagehelper:
-#  reasonable: true
-#  supportMethodsArguments: true
-#  params: count\=countSql
 

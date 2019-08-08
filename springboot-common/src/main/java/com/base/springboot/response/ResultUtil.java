@@ -16,15 +16,15 @@ public class ResultUtil {
      * @param object
      * @return
      */
-    public static CommonResult success(Object object){
-        return new CommonResult("0000","success",object);
+    public static BaseResult success(Object object){
+        return new BaseResult("0000","success",object);
     }
 
     /**
      * 提供给部分不需要出參的接口
      * @return
      */
-    public static CommonResult success(){
+    public static BaseResult success(){
         return success(null);
     }
 
@@ -34,8 +34,8 @@ public class ResultUtil {
      * @param msg
      * @return
      */
-    public static CommonResult error(String code, String msg){
-        return new CommonResult(code,msg,null);
+    public static BaseResult error(String code, String msg){
+        return new BaseResult(code,msg,null);
     }
 
     /**
@@ -43,8 +43,8 @@ public class ResultUtil {
      * @param e
      * @return
      */
-    public static CommonResult error(BaseException e){
-        return new CommonResult(e.getCode(),e.getMessage(),null);
+    public static BaseResult error(BaseException e){
+        return new BaseResult(e.getCode(),e.getMessage(),null);
     }
 }
 

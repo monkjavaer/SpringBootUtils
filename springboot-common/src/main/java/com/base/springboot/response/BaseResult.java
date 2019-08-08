@@ -9,20 +9,20 @@ import com.base.springboot.utils.JsonUtils;
  * @date 2017年11月16日 下午9:35:16
  * @version V1.0
  */
-public class CommonResult {
+public class BaseResult {
 	private String code;
 	private String message;
 	private Object data;
-	public CommonResult() {
+	public BaseResult() {
 		super();
 	}
-	public CommonResult(String code, String message, Object data) {
+	public BaseResult(String code, String message, Object data) {
 		super();
 		this.code = code;
 		this.message = message;
 		this.data = data;
 	}
-	public CommonResult(BaseException e){
+	public BaseResult(BaseException e){
 		super();
 		this.code = e.getCode();
 		this.message = e.getMessage();

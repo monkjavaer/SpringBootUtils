@@ -7,22 +7,23 @@ import java.util.List;
 
 /**
  * @Description: pagehelper 分页工具类
- * @Author: tangquanbin
+ * @Author: monkjavaer
  * @Data: 2019/3/7 18:15
  * @Version: V1.0
  */
-public class PageUtil<T> {
+public class BasePage<T> {
     private Integer pageIndex;
     private Integer pageSize;
     private long itemCount;
     private Integer pageCount;
     List<T> items;
-    public PageUtil() {
+    public BasePage() {
         super();
     }
 
-    public PageUtil(List<T> list){
-        //PageInfo分页插件类
+    public BasePage(List<T> list){
+
+        //加入pagehelper的PageInfo分页插件类
         PageInfo page = new PageInfo(list);
         pageIndex = page.getPageNum();
         pageSize = page.getPageSize();
@@ -31,7 +32,7 @@ public class PageUtil<T> {
         items = list;
     }
 
-    public PageUtil(PageUtil page){
+    public BasePage(BasePage page){
         pageIndex = page.getPageIndex();
         pageSize = page.getPageSize();
         itemCount = page.getItemCount();
@@ -39,7 +40,7 @@ public class PageUtil<T> {
         items = page.getItems();
     }
 
-    public PageUtil(Integer pageIndex, Integer pageSize, Integer itemCount,
+    public BasePage(Integer pageIndex, Integer pageSize, Integer itemCount,
                     Integer pageCount, List<T> items) {
         super();
         this.pageIndex = pageIndex;
@@ -82,4 +83,10 @@ public class PageUtil<T> {
     public String toString(){
         return JSON.toJSONString(this);
     }
+
+    //ReflectionToStringBuilder也可以完成toString打印。
+/*    @Override
+    public String toString() {
+        return ReflectionToStringBuilder.toString(this);
+    }*/
 }

@@ -49,6 +49,7 @@
 
         <junit.version>4.12</junit.version>
 
+        <solr.version>6.6.0</solr.version>
     </properties>
 
     <!-- 配置远程maven仓库 -->
@@ -124,6 +125,12 @@
                 <version>${springboot.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.solr</groupId>
+                <artifactId>solr-solrj</artifactId>
+                <version>${solr.version}</version>
             </dependency>
 
             <!-- fastjson -->

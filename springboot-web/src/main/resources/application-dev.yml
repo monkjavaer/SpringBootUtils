@@ -1,16 +1,16 @@
 server:
-  port: 14888
+  port: 8888
 
 logging:
   level:
     root: info
-    com.ceiec.gis.springboot.mapper: debug
+    com.base.springboot.mapper: debug
 
 spring:
   datasource:
-    url: jdbc:postgresql://192.168.19.57:5432/kyrgyzstan_v2
+    url: jdbc:postgresql://127.0.0.1:5432/test
     username: postgres
-    password: 1234
+    password: 123456
     druid:
       validationQuery: SELECT 1
       initialSize: 10
