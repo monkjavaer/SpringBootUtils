@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.m.gis.springboot.mapper.GisDistrictMapper">
+  <resultMap id="BaseResultMap" type="com.m.gis.springboot.district.common.GisDistrict">
+    <result column="gid" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="district_code" jdbcType="VARCHAR" property="districtCode" />
+    <result column="wkt" jdbcType="VARCHAR" property="wkt" />
+  </resultMap>
+
+  <sql id="District_Column">
+    gid, name, district_code, st_astext(geom) as wkt
+  </sql>
+
+  <select id="selectAll"  resultMap="BaseResultMap">
+    select
+    <include refid="District_Column" />
+    from ${tableName} WHERE  "level" = ${level} order by name
+  </select>
+
+
+</mapper>

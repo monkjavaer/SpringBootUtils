@@ -1,0 +1,44 @@
+spring:
+  profiles:
+    active: dev
+
+  messages:
+    encoding: UTF-8
+    basename: i18n/messages
+
+  cache:
+    type: ehcache
+    ehcache:
+      config: classpath:ehcache.xml
+
+# enable gzip compression
+server:
+  compression:
+    enabled: true
+    mime-types: application/json
+#,application/xml,text/html,text/xml,text/plain
+    min-response-size: 2048
+
+mybatis:
+    type-aliases-package: com.m.gis.springboot.po
+    mapper-locations: classpath*:mappers/*.xml
+    type-handlers-package: com.m.gis.springboot.typehandler
+
+mapper:
+    mappers:
+      - tk.mybatis.mapper.common.Mapper
+    not-empty: false
+
+pagehelper:
+    reasonable: true
+    supportMethodsArguments: true
+    params: count=countSql
+
+#mybatis:
+#  mapperLocations: classpath*:mappers/*.xml
+#  type-handlers-package: com.m.gis.springboot.typehandler
+#pagehelper:
+#  reasonable: true
+#  supportMethodsArguments: true
+#  params: count\=countSql
+

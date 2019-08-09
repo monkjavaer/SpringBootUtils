@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.m.gis.springboot.mapper.GisDictMapper">
+  <resultMap id="BaseResultMap" type="com.m.gis.springboot.po.GisDictItem">
+    <result column="code" jdbcType="VARCHAR" property="code" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="name_locale" jdbcType="VARCHAR" property="nameLocale" />
+  </resultMap>
+  
+  <sql id="Base_Column_List">
+    code, name, name_locale
+  </sql>
+  
+  <select id="selectAll" parameterType="map" statementType="STATEMENT" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from ${tablename} order by gid
+  </select>
+
+  <!-- poi type -->
+  <select id="selectAllPoi" parameterType="map" statementType="STATEMENT" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from gis_poi_type_c
+    where
+    <![CDATA[ query_enable = ${queryEnable} ]]>
+    order by gid
+  </select>
+
+</mapper>

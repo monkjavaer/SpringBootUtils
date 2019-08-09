@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+    <properties resource="generator/generatorConfig.properties"/>
+
+    <context id="postgres" targetRuntime="MyBatis3Simple" defaultModelType="flat">
+        <property name="beginningDelimiter" value="`"/>
+        <property name="endingDelimiter" value="`"/>
+
+        <plugin type="tk.mybatis.mapper.generator.MapperPlugin">
+            <property name="mappers" value="tk.mybatis.mapper.common.Mapper"/>
+            <property name="caseSensitive" value="true"/>
+        </plugin>
+
+		<jdbcConnection driverClass="${spring.datasource.driver-class-name}"
+		                connectionURL="${spring.datasource.url}"
+		                userId="${spring.datasource.username}"
+		                password="${spring.datasource.password}">
+		</jdbcConnection>
+                           
+        <javaModelGenerator targetPackage="${mapper.targetModelPackage}" targetProject="src/test/java"/>
+		<sqlMapGenerator targetPackage="${mapper.targetXMLPackage}"  targetProject="src/test/resources"/>
+		<javaClientGenerator targetPackage="${mapper.targetMapperPackage}" targetProject="src/test/java" type="XMLMAPPER" />
+
+        <!-- 这里是数据库的表名table_user 以及 POJO类的名字User -->
+        <table tableName="gis_address_t" domainObjectName="GisAddressT">
+            <generatedKey column="id" sqlStatement="JDBC"/>
+        </table>
+
+<!--         <table tableName="gis_address_type_dict" domainObjectName="GisAddressType"
+            enableCountByExample="false" enableSelectByExample="false"
+            enableUpdateByExample="false" enableDeleteByExample="false">
+	        </table> -->
+	
+        
+    </context>
+</generatorConfiguration>
