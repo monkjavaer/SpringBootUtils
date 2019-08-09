@@ -21,7 +21,6 @@ import com.car.trunk.dal.dictionary.DeviceType;
 import com.car.trunk.dal.dictionary.HasOnline;
 import com.car.trunk.dal.dictionary.LogActionType;
 import com.car.trunk.dal.dictionary.LogDataType;
-import com.car.trunk.dal.model.DeviceEntity;
 import com.car.trunk.util.StringFormatUtil;
 import net.sf.json.JSONObject;
 import org.apache.commons.lang.StringUtils;
@@ -40,9 +39,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import java.math.BigInteger;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 
 /**

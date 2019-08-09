@@ -1,11 +1,11 @@
 package com.car.netty.service.utils;
 
+import com.car.netty.iservice.netty.NettyChannelIfc;
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.buffer.PooledByteBufAllocator;
 import io.netty.channel.*;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
-import com.car.netty.iservice.netty.NettyChannelIfc;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.Scope;

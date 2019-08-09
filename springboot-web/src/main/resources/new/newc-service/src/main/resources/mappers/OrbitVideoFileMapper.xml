@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.car.orbit.orbitservice.mapper.OrbitVideoFileMapper" >
+  <resultMap id="BaseResultMap" type="com.car.orbit.orbitservice.entity.OrbitVideoFile" >
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="ID" property="id" jdbcType="VARCHAR" />
+    <result column="NAME" property="name" jdbcType="VARCHAR" />
+    <result column="USER_ID" property="userId" jdbcType="VARCHAR" />
+    <result column="FILEFOLDER_ID" property="fileFolderId" jdbcType="VARCHAR" />
+    <result column="DEVICE_ID" property="deviceId" jdbcType="VARCHAR" />
+    <result column="STATUS" property="status" jdbcType="INTEGER" />
+    <result column="FILE_PATH" property="filePath" jdbcType="VARCHAR" />
+    <result column="UPLOAD_TIME" property="uploadTime" jdbcType="TIMESTAMP" />
+    <result column="DESCRIPTION" property="description" jdbcType="VARCHAR" />
+    <result column="SIZE" property="size" jdbcType="FLOAT" />
+    <result column="TIME" property="time" jdbcType="INTEGER" />
+    <result column="PICTURE" property="picture" jdbcType="VARCHAR" />
+  </resultMap>
+</mapper>

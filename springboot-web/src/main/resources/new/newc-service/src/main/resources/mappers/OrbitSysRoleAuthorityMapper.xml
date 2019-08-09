@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.car.orbit.orbitservice.mapper.OrbitSysRoleAuthorityMapper" >
+  <resultMap id="BaseResultMap" type="com.car.orbit.orbitservice.entity.OrbitSysRoleAuthority" >
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="role_id" property="roleId" jdbcType="VARCHAR" />
+    <result column="authority_id" property="authorityId" jdbcType="VARCHAR" />
+    <result column="operate_add" property="operateAdd" jdbcType="INTEGER" />
+    <result column="operate_update" property="operateUpdate" jdbcType="INTEGER" />
+    <result column="operate_delete" property="operateDelete" jdbcType="INTEGER" />
+  </resultMap>
+</mapper>

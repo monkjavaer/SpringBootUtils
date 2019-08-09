@@ -1,10 +1,10 @@
 package com.car.netty.service.unv.protocol;
 
+import com.car.netty.enums.UnvEnum;
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.PooledByteBufAllocator;
 import io.netty.channel.Channel;
 import io.netty.channel.ChannelHandlerContext;
-import com.car.netty.enums.UnvEnum;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.Scope;

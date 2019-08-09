@@ -5,7 +5,6 @@
 package com.car.base.rabbit;
 
 import com.car.base.common.constant.EnvConstant;
-import com.car.base.common.utilities.PropertiesUtil;
 import com.rabbitmq.client.*;
 import org.apache.commons.lang3.SerializationUtils;
 import org.slf4j.Logger;

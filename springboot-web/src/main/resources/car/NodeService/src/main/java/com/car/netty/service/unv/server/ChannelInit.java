@@ -1,14 +1,14 @@
 package com.car.netty.service.unv.server;
 
+import com.car.netty.decode.UnvDecode;
+import com.car.netty.iservice.netty.NettyChannelIfc;
+import com.car.netty.service.unv.serverhandlers.UnvVehicleServerHandler;
 import io.netty.channel.ChannelHandler;
 import io.netty.channel.ChannelInitializer;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.handler.timeout.ReadTimeoutHandler;
 import io.netty.util.concurrent.DefaultEventExecutorGroup;
 import io.netty.util.concurrent.DefaultThreadFactory;
-import com.car.netty.decode.UnvDecode;
-import com.car.netty.iservice.netty.NettyChannelIfc;
-import com.car.netty.service.unv.serverhandlers.UnvVehicleServerHandler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

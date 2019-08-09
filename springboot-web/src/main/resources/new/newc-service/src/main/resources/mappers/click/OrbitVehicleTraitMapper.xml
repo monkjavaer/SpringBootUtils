@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.car.orbit.orbitservice.mapper.clickhouse.OrbitVehicleTraitMapper" >
+    <resultMap id="BaseResultMap" type="com.car.orbit.orbitservice.vo.VehicleTraitVo" >
+        <id column="ID" property="ID" javaType="String" />
+        <result column="VID" property="vid" javaType="String" />
+        <result column="PLATE_NUMBER" property="plateNumber" javaType="String" />
+        <result column="PLATE_COLOR" property="plateColor" javaType="String" />
+        <result column="VEHICLE_COLOR" property="vehicleColor" javaType="String" />
+        <result column="VEHICLE_TYPE" property="vehicleType" javaType="String" />
+        <result column="ROAD_CROSS_POINT_ID" property="roadCrossPointId" javaType="String" />
+        <result column="DEVICE_ID" property="deviceId" javaType="String" />
+        <result column="VEHICLE_BRAND" property="vehicleBrand" javaType="String" />
+        <result column="VEHICLE_BRAND_CHILD" property="vehicleBrandChild" javaType="String" />
+        <result column="PHOTO_FASTDFS_URL" property="photoUrl" javaType="String" />
+        <result column="featureA" property="featureA" jdbcType="VARCHAR" />
+        <result column="CAPTURE_TIME" property="captureTime" jdbcType="TIMESTAMP"/>
+        <result column="sumNumerator" property="sumNumerator" javaType="Float"  />
+        <result column="modFeatureA" property="modFeatureA" javaType="Float" />
+        <result column="ret" property="ret" javaType="Float" />
+        <!--<collection column="featureA" property="featureA"  javaType="Double" />-->
+    </resultMap>
+
+    <sql id="Base_Column_List" >
+        ID,VID,PLATE_NUMBER,PLATE_COLOR,VEHICLE_COLOR,VEHICLE_TYPE,ROAD_CROSS_POINT_ID,ROAD_NAME,DEVICE_ID,VEHICLE_BRAND,VEHICLE_BRAND_CHILD,PHOTO_FASTDFS_URL, CAPTURE_TIME ,featureA,sumNumerator,modFeatureA,ret
+    </sql>
+
+
+    <select id="getTraitByImgAll" resultMap="BaseResultMap"  parameterType="com.car.orbit.orbitservice.qo.RequestPrameterQo" >
+        SELECT
+        ID,VID,PLATE_NUMBER,PLATE_COLOR,VEHICLE_COLOR,VEHICLE_TYPE,ROAD_CROSS_POINT_ID,DEVICE_ID,VEHICLE_BRAND,VEHICLE_BRAND_CHILD,PHOTO_FASTDFS_URL,
+        CAPTURE_TIME,
+        [-0.15898433,0.15785049,-0.14690203,-0.1048021] AS featureA,
+        arraySum((a, b) -> (b * a), featureA, FEATURE) AS sumNumerator,
+        2.1747643499737754 as  modFeatureA,
+        abs(sumNumerator / (modFeatureA * FEATURE_MOD)) + 0.05 AS ret
+        FROM orbit_vehicle_feature
+        WHERE CAPTURE_TIME
+        between '2018-10-01 00:00:01' and '2019-11-01 23:59:59'  and (ret > 0)
+        order by ret desc
+        LIMIT 10;
+
+    </select>
+
+    <select id="getTraitByCondition" resultMap="BaseResultMap"  parameterType="com.car.orbit.orbitservice.qo.RequestPrameterQo" >
+        SELECT
+        ID,VID,PLATE_NUMBER,PLATE_COLOR,VEHICLE_COLOR,VEHICLE_TYPE,ROAD_CROSS_POINT_ID,DEVICE_ID,VEHICLE_BRAND,VEHICLE_BRAND_CHILD,PHOTO_FASTDFS_URL,
+        CAPTURE_TIME
+        <if test=" img != null and img.length > 0 ">
+            ,
+            <foreach collection="img" open="[" close="]" separator="," item="type">
+                #{type}
+            </foreach>
+             AS featureA,
+            arraySum((a, b) -> (b * a), featureA, FEATURE) AS sumNumerator,
+            #{ret} as  modFeatureA,
+            abs(sumNumerator / (modFeatureA * FEATURE_MOD)) + 0.05 AS ret
+        </if>
+        FROM orbit_vehicle_feature
+        WHERE
+        length(FEATURE) == 512 AND FEATURE_MOD != 0
+        <if test=" begintime != null and begintime != '' ">
+            and CAPTURE_TIME &gt;= #{begintime}
+        </if>
+        <if test=" endtime != null and endtime != ''">
+            and  CAPTURE_TIME  &lt;= #{endtime}
+        </if>
+        <if test=" brand != null and brand != '' ">
+            AND VEHICLE_BRAND = #{brand}
+        </if>
+        <if test=" childBrand != null and childBrand != '' ">
+            AND VEHICLE_BRAND = #{brand}
+        </if>
+        <if test=" img != null and img.length > 0 " >
+            and (ret > 0)
+        </if>
+        <if test=" deviceId != null and deviceId.size() > 0 ">
+            AND
+            <foreach collection="deviceId" open="(" close=")"  separator="OR" item="id">
+                DEVICE_ID =  #{id, jdbcType=VARCHAR}
+            </foreach>
+        </if>
+        <if test=" img != null and img.length > 0 " >
+            order by ret desc
+        </if>
+        LIMIT 100;
+
+    </select>
+
+
+</mapper>

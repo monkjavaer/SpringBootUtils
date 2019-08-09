@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.car.orbit.orbitservice.mapper.OrbitControlWhiteRecordMapper" >
+  <resultMap id="BaseResultMap" type="com.car.orbit.orbitservice.entity.OrbitControlWhiteRecord" >
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="ID" property="id" jdbcType="VARCHAR" />
+    <result column="PLATE_NUMBER" property="plateNumber" jdbcType="VARCHAR" />
+    <result column="DEVICE_ID" property="deviceId" jdbcType="VARCHAR" />
+    <result column="CAPTURE_TIME" property="captureTime" jdbcType="TIMESTAMP" />
+    <result column="ROADWAY_NO" property="roadwayNo" jdbcType="INTEGER" />
+    <result column="WHITE_LIST_TYPE" property="whiteListType" jdbcType="VARCHAR" />
+    <result column="PHOTO_FASTDFS_URL" property="photoFastdfsUrl" jdbcType="VARCHAR" />
+    <result column="CITY_NAME" property="cityName" jdbcType="VARCHAR" />
+    <result column="AREA_NAME" property="areaName" jdbcType="VARCHAR" />
+    <result column="ROAD_NAME" property="roadName" jdbcType="VARCHAR" />
+    <result column="CITY_ID" property="cityId" jdbcType="VARCHAR" />
+    <result column="AREA_ID" property="areaId" jdbcType="VARCHAR" />
+    <result column="ROAD_CROSS_POINT_ID" property="roadCrossPointId" jdbcType="VARCHAR" />
+  </resultMap>
+</mapper>

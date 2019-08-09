@@ -7,7 +7,6 @@ import com.car.trunk.dal.device.bo.DeviceQueryVO;
 import com.car.trunk.dal.device.bo.DeviceSimpleBO;
 import com.car.trunk.dal.device.vo.DeviceRedisVO;
 import com.car.trunk.dal.device.vo.DeviceSimpleVO;
-import com.car.trunk.dal.device.vo.DeviceUserVO;
 import com.car.trunk.dal.device.vo.DeviceVO;
 import com.car.trunk.dal.model.DeviceEntity;
 
