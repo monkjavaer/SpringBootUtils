@@ -4,7 +4,6 @@ import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.car.orbit.orbitservice.entity.OrbitResDevice;
 import com.car.orbit.orbitservice.mapper.OrbitResDeviceMapper;
-import com.car.orbit.orbitservice.service.IDeviceService;
 import com.car.orbit.orbitutil.tools.PropertyReaderUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

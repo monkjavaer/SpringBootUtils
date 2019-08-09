@@ -1,17 +1,13 @@
 package com.car.orbit.orbitservice.util;
 
-import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.car.orbit.orbitservice.vo.DeviceStructuralVO;
-import com.car.orbit.orbitservice.vo.VehiclePositionVO;
 import com.car.orbit.orbitutil.tools.HttpUtil;
 import com.car.orbit.orbitutil.tools.JsonUtils;
 import com.car.orbit.orbitutil.tools.PropertyReaderUtils;
 import io.netty.util.internal.StringUtil;
 
 import java.io.IOException;
-import java.util.List;
 
 /**
  * @Title: 请求结构化服务器的工具类

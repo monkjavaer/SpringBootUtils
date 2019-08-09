@@ -9,7 +9,9 @@ import com.car.orbit.orbitutil.tools.JsonUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.BeanUtils;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 /**
  * 当前布控中任务列表缓存

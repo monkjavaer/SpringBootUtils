@@ -10,7 +10,6 @@ import com.car.orbit.orbitservice.util.redis.RoadcrossPointRedis;
 import com.car.orbit.orbitservice.util.redis.VehicleTypeRedis;
 import com.car.orbit.orbitservice.vo.VehicleTraitVo;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 import java.util.List;

@@ -1,18 +1,11 @@
 package com.car.orbit.orbitservice.test;
 
 import com.alibaba.fastjson.JSON;
-import com.car.orbit.orbitservice.constant.KafkaConstant;
-import com.car.orbit.orbitservice.kafka.AlarmConsumerService;
 import com.car.orbit.orbitutil.kafka.ConsumerInterface;
-import com.car.orbit.orbitutil.kafka.KafkaConsumerUtils;
-import com.car.orbit.orbitutil.kafka.TestConsumer;
 import com.car.orbit.orbitutil.tools.DateUtils;
 import com.car.orbit.orbitutil.tools.UUIDUtils;
-import io.micrometer.core.instrument.util.TimeUtils;
 
-import java.util.Arrays;
 import java.util.Date;
-import java.util.List;
 
 /**
  * Created by thinkpad on 2018/1/23.

@@ -9,7 +9,6 @@ import com.car.orbit.orbitservice.mapper.OrbitSysVariableMapper;
 import com.car.orbit.orbitservice.service.ISysVariableService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 import tk.mybatis.mapper.entity.Example;
 
 import java.util.List;

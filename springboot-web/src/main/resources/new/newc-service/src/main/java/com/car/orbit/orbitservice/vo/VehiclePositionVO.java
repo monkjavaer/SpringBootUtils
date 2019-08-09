@@ -1,7 +1,5 @@
 package com.car.orbit.orbitservice.vo;
 
-import java.util.List;
-
 /**
  * @Title: VehiclePositionVO
  * @Package: com.car.orbit.orbitservice.vo

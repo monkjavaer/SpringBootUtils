@@ -1,7 +1,9 @@
 package com.car.orbit.orbitservice.entity;
 
+import javax.persistence.Column;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import java.util.Date;
-import javax.persistence.*;
 
 @Table(name = "orbit_sys_log")
 public class OrbitSysLog {

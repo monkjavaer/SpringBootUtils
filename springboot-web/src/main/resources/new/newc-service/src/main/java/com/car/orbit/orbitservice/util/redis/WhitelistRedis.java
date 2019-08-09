@@ -1,8 +1,6 @@
 package com.car.orbit.orbitservice.util.redis;
 
-import com.car.orbit.orbitservice.entity.OrbitControlBlacklist;
 import com.car.orbit.orbitservice.entity.OrbitControlWhitelist;
-import com.car.orbit.orbitservice.enums.StatusEnum;
 import com.car.orbit.orbitutil.tools.JsonUtils;
 import org.apache.commons.lang3.StringUtils;
 

@@ -2,8 +2,11 @@ package com.car.orbit.orbitservice.entity;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
+import javax.persistence.Column;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.persistence.Transient;
 import java.util.Date;
-import javax.persistence.*;
 
 @Table(name = "orbit_control_whitelist")
 public class OrbitControlWhitelist {

@@ -1,8 +1,6 @@
 package com.car.orbit.orbitutil.kafka;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
 /**
  * CreateDate: 2019-4-1 <br/>

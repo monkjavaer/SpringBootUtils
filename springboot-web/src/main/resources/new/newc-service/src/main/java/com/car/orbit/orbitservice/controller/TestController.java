@@ -1,8 +1,6 @@
 package com.car.orbit.orbitservice.controller;
 
 import com.car.orbit.orbitservice.kafka.AlarmConsumerService;
-import com.car.orbit.orbitservice.util.EmailUtil;
-import com.car.orbit.orbitservice.util.redis.BaseBusinessRedis;
 import com.car.orbit.orbitutil.response.OrbitResult;
 import com.car.orbit.orbitutil.response.ResultUtil;
 import com.car.orbit.orbitutil.tools.RedisClient;

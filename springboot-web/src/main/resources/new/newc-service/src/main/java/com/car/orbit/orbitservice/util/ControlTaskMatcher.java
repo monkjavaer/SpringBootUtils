@@ -1,8 +1,5 @@
 package com.car.orbit.orbitservice.util;
 
-import com.car.orbit.orbitservice.entity.OrbitControlTask;
-import com.car.orbit.orbitservice.entity.OrbitControlTaskDetail;
-
 import java.util.ArrayList;
 import java.util.List;
 

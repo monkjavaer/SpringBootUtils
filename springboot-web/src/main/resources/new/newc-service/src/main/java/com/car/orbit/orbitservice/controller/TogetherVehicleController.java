@@ -4,7 +4,6 @@ import com.car.orbit.orbitservice.bo.TogetherVehicleBO;
 import com.car.orbit.orbitservice.bo.VehicleSearchBO;
 import com.car.orbit.orbitservice.qo.TogetherVehicleQO;
 import com.car.orbit.orbitservice.service.ITogetherVehicleService;
-import com.car.orbit.orbitservice.vo.TogetherVehicleInfoVO;
 import com.car.orbit.orbitservice.vo.TogetherVehicleVO;
 import com.car.orbit.orbitutil.response.OrbitResult;
 import com.car.orbit.orbitutil.response.ResultUtil;

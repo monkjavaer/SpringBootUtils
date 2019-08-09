@@ -12,7 +12,6 @@ import com.car.orbit.orbitservice.qo.AlarmQO;
 import com.car.orbit.orbitservice.service.IAlarmService;
 import com.car.orbit.orbitservice.util.LocalHolder;
 import com.car.orbit.orbitservice.util.PassVehicleIndexUtil;
-import com.car.orbit.orbitservice.util.redis.BlacklistRedis;
 import com.car.orbit.orbitservice.util.redis.BrandRedis;
 import com.car.orbit.orbitservice.util.redis.DevicePointRedis;
 import com.car.orbit.orbitservice.util.redis.OrbitSysUserRedis;
@@ -31,7 +30,6 @@ import org.elasticsearch.search.SearchHit;
 import org.elasticsearch.search.SearchHits;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;

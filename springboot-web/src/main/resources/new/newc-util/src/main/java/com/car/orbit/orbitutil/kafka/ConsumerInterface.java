@@ -1,7 +1,5 @@
 package com.car.orbit.orbitutil.kafka;
 
-import org.apache.kafka.common.protocol.types.Field;
-
 /**
  * CreateDate: 2019-4-1 <br/>
  * Author: monkjavaer <br/>

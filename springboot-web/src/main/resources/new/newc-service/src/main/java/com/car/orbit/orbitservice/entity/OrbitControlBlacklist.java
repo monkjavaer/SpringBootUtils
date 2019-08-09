@@ -1,11 +1,12 @@
 package com.car.orbit.orbitservice.entity;
 
-import com.alibaba.fastjson.annotation.JSONField;
 import com.fasterxml.jackson.annotation.JsonFormat;
-import org.springframework.format.annotation.DateTimeFormat;
 
+import javax.persistence.Column;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.persistence.Transient;
 import java.util.Date;
-import javax.persistence.*;
 
 @Table(name = "orbit_control_blacklist")
 public class OrbitControlBlacklist {
