@@ -3,8 +3,6 @@ package com.m.gis.springboot.qo;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
-import javax.validation.constraints.NotBlank;
-
 /**
  * @Title: GisCircleQO.java
  * @Package com.m.gis.springboot.qo

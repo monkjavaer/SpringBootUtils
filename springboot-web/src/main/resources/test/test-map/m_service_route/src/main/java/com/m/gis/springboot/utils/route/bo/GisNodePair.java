@@ -1,7 +1,6 @@
 package com.m.gis.springboot.utils.route.bo;
 
 import com.m.gis.springboot.common.GisRouteConstants;
-import com.m.gis.springboot.exception.GisPointsTooCloseServiceException;
 import com.m.gis.springboot.exception.GisRouteProcessorException;
 import com.m.gis.springboot.geo.base.common.GisCoordinate;
 import com.m.gis.springboot.po.GisRouteRoad;

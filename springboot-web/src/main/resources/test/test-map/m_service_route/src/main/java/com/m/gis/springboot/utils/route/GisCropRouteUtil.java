@@ -1,6 +1,5 @@
 package com.m.gis.springboot.utils.route;
 
-import com.m.gis.springboot.utils.route.bo.GisCropRoute;
 import com.m.gis.springboot.common.GisRouteConstants;
 import com.m.gis.springboot.enums.GisCropRouteEnums;
 import com.m.gis.springboot.exception.GisRouteProcessorException;
@@ -11,6 +10,7 @@ import com.m.gis.springboot.geo.base.utils.GisGeometryFactoryUtil;
 import com.m.gis.springboot.geo.base.utils.GisLineStringUtil;
 import com.m.gis.springboot.po.GisBaseRoad;
 import com.m.gis.springboot.po.GisRouteRoad;
+import com.m.gis.springboot.utils.route.bo.GisCropRoute;
 import com.m.gis.springboot.utils.route.instruction.GisManeuverModifierEnum;
 import com.vividsolutions.jts.geom.LineString;
 import org.apache.commons.collections.CollectionUtils;

@@ -1,6 +1,5 @@
 package com.m.gis.springboot.vo;
 
-import com.m.gis.springboot.common.GisRouteConstants;
 import com.m.gis.springboot.common.exception.GisException;
 import com.m.gis.springboot.exception.GisRouteLegStepHandleException;
 import com.m.gis.springboot.geo.base.common.GisCoordinate;

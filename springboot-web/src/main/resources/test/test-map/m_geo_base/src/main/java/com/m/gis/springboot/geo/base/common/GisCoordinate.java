@@ -1,10 +1,10 @@
 package com.m.gis.springboot.geo.base.common;
 
+import com.m.gis.springboot.geo.base.utils.GisFormatUtil;
 import com.vividsolutions.jts.geom.Coordinate;
 import com.vividsolutions.jts.geom.Geometry;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import com.m.gis.springboot.geo.base.utils.GisFormatUtil;
 
 import java.io.Serializable;
 import java.util.ArrayList;

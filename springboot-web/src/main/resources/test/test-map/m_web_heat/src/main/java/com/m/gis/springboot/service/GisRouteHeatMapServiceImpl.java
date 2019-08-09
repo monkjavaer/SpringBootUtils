@@ -1,11 +1,16 @@
 package com.m.gis.springboot.service;
 
 import com.alibaba.fastjson.JSONArray;
+import com.m.gis.springboot.bo.RoadAnalysisBO;
+import com.m.gis.springboot.bo.RoadResultBO;
 import com.m.gis.springboot.common.utils.JsonUtils;
 import com.m.gis.springboot.geo.base.common.GisCoordinate;
 import com.m.gis.springboot.geo.base.exception.GisParseGeometryBaseThrowableException;
 import com.m.gis.springboot.geo.base.utils.GisGeometryFactoryUtil;
 import com.m.gis.springboot.geo.base.utils.GisLineStringUtil;
+import com.m.gis.springboot.mapper.GisAngolaRoadMapper;
+import com.m.gis.springboot.qo.GisCameraPosQO;
+import com.m.gis.springboot.qo.GisCameraRouteQO;
 import com.vividsolutions.jts.geom.LineString;
 import com.vividsolutions.jts.geom.MultiLineString;
 import org.apache.commons.collections.CollectionUtils;
@@ -13,11 +18,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import com.m.gis.springboot.bo.RoadAnalysisBO;
-import com.m.gis.springboot.bo.RoadResultBO;
-import com.m.gis.springboot.mapper.GisAngolaRoadMapper;
-import com.m.gis.springboot.qo.GisCameraPosQO;
-import com.m.gis.springboot.qo.GisCameraRouteQO;
 
 import java.util.ArrayList;
 import java.util.HashMap;

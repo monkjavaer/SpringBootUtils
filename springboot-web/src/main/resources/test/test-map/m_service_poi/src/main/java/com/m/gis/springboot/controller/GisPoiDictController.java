@@ -2,7 +2,6 @@ package com.m.gis.springboot.controller;
 
 import com.m.gis.springboot.common.GisResult;
 import com.m.gis.springboot.properties.GisPoiDictProperties;
-import com.m.gis.springboot.utils.LocaleUtil;
 import com.m.gis.springboot.utils.ResultUtil;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
