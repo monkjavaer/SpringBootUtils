@@ -12,7 +12,7 @@ import javax.sql.DataSource;
  * @Title: DB1Config
  * @Package: com.base.springboot.config
  * @Description: TODO（添加描述）
- * @Author: tangquanbin
+ * @Author: monkjavaer
  * @Date: 2019/8/12 15:50
  * @Version: V1.0
  */
