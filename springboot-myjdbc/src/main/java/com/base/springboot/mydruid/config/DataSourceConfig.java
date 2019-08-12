@@ -1,4 +1,4 @@
-package com.base.springboot.springbootjdbc.config;
+package com.base.springboot.mydruid.config;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

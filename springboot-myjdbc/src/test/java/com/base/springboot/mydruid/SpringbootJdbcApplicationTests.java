@@ -1,4 +1,4 @@
-package com.base.springboot.springbootjdbc;
+package com.base.springboot.mydruid;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
