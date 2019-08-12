@@ -23,19 +23,14 @@ import javax.sql.DataSource;
 @Configuration
 public class DruidDataSourceConfig {
 
-    /**
-     * log
-     */
-    private static Logger log = LoggerFactory.getLogger(DruidDataSourceConfig.class);
-
     @Primary
-    @Bean
+    @Bean(name = "db1")
     @ConfigurationProperties("spring.datasource.druid.one")
     public DataSource dataSourceOne(){
         return DruidDataSourceBuilder.create().build();
     }
 
-    @Bean
+    @Bean(name = "db2")
     @ConfigurationProperties("spring.datasource.druid.two")
     public DataSource dataSourceTwo(){
         return DruidDataSourceBuilder.create().build();
