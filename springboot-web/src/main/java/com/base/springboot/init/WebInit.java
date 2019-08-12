@@ -3,6 +3,7 @@ package com.base.springboot.init;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
@@ -27,6 +28,7 @@ public class WebInit implements CommandLineRunner {
     private DataSource dataSource;
 
     @Autowired
+    @Qualifier("jdbcTemplate1")
     private JdbcTemplate jdbcTemplate;
 
 
@@ -44,7 +46,7 @@ public class WebInit implements CommandLineRunner {
     }
 
     private void showData() {
-        jdbcTemplate.queryForList("SELECT * FROM `order` ")
+        jdbcTemplate.queryForList("SELECT * FROM `USER` ")
                 .forEach(row -> logger.info("row================================={}",row.toString()));
     }
 

@@ -1,4 +1,4 @@
-package com.base.springboot.config;
+package com.base.springboot.springbootjdbc.config;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -33,7 +33,7 @@ public class DataSourceConfig {
     }
 
     @Primary
-    @Bean(name = "db1")
+    @Bean
     public DataSource db1DataSource() {
         DataSourceProperties dataSourceProperties = db1DataSourceProperties();
         log.info("db1 datasource: {}", dataSourceProperties.getUrl());
@@ -52,7 +52,7 @@ public class DataSourceConfig {
         return new DataSourceProperties();
     }
 
-    @Bean(name = "db2")
+    @Bean
     public DataSource db2DataSource() {
         DataSourceProperties dataSourceProperties = db2DataSourceProperties();
         log.info("db2 datasource: {}", dataSourceProperties.getUrl());

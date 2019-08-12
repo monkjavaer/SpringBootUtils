@@ -28,7 +28,7 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
-                    <mainClass>com.base.springboot.Application</mainClass>
+                    <mainClass>com.base.springboot.WebApplication</mainClass>
                 </configuration>
                 <executions>
                     <execution>

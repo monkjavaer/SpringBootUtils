@@ -11,6 +11,7 @@
     <modules>
         <module>springboot-web</module>
         <module>springboot-common</module>
+        <module>springboot-myjdbc</module>
     </modules>
 
     <!-- 版本基本信息 -->
