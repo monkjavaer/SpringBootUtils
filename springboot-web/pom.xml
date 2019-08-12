@@ -42,10 +42,13 @@
     </build>
 
     <dependencies>
+
         <dependency>
-            <groupId>org.yaml</groupId>
-            <artifactId>snakeyaml</artifactId>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <optional>true</optional>
         </dependency>
+
         <dependency>
             <groupId>com.base.springboot</groupId>
             <artifactId>springboot-common</artifactId>

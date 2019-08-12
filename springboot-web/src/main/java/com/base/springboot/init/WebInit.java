@@ -1,5 +1,6 @@
 package com.base.springboot.init;
 
+import com.base.springboot.dao.StudentDao;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +15,7 @@ import java.sql.SQLException;
 
 /**
  * CommandLineRunner启动时运行
+ *
  * @author monkjavaer
  * @version V1.0
  * @date 2019/8/11 0011 21:42
@@ -21,7 +23,9 @@ import java.sql.SQLException;
 @Component
 public class WebInit implements CommandLineRunner {
 
-    /**log*/
+    /**
+     * log
+     */
     private static Logger logger = LoggerFactory.getLogger(WebInit.class);
 
     @Autowired
@@ -31,23 +35,26 @@ public class WebInit implements CommandLineRunner {
     @Qualifier("jdbcTemplate1")
     private JdbcTemplate jdbcTemplate;
 
+    @Autowired
+    private StudentDao studentDao;
 
     @Override
     public void run(String... args) throws Exception {
         showConnection();
         showData();
+        studentDao.batchInsert();
     }
 
     private void showConnection() throws SQLException {
-        logger.info("showConnection================================={}",dataSource.toString());
+        logger.info("showConnection================================={}", dataSource.toString());
         Connection conn = dataSource.getConnection();
-        logger.info("conn================================={}",conn.toString());
+        logger.info("conn================================={}", conn.toString());
         conn.close();
     }
 
     private void showData() {
-        jdbcTemplate.queryForList("SELECT * FROM `USER` ")
-                .forEach(row -> logger.info("row================================={}",row.toString()));
+        jdbcTemplate.queryForList("SELECT * FROM STUDENT ")
+                .forEach(row -> logger.info("row================================={}", row.toString()));
     }
 
 }

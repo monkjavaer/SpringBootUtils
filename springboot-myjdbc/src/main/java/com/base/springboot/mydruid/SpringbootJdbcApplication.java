@@ -12,7 +12,7 @@ import org.springframework.boot.autoconfigure.jdbc.JdbcTemplateAutoConfiguration
 public class SpringbootJdbcApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(SpringbootDruidApplication.class, args);
+        SpringApplication.run(SpringbootJdbcApplication.class, args);
     }
 
 }

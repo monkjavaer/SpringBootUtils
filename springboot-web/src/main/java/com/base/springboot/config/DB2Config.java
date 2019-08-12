@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 
 import javax.sql.DataSource;
 
@@ -25,5 +26,10 @@ public class DB2Config {
     @Bean(name = "jdbcTemplate2")
     public JdbcTemplate jdbcTemplate2(){
         return new JdbcTemplate(db2);
+    }
+
+    @Bean(name = "namedParameterJdbcTemplate2")
+    public NamedParameterJdbcTemplate namedParameterJdbcTemplate2(){
+        return new NamedParameterJdbcTemplate(db2);
     }
 }
