@@ -52,6 +52,11 @@
         <junit.version>4.12</junit.version>
 
         <solr.version>6.6.0</solr.version>
+
+        <rabbitmq.version>3.5.6</rabbitmq.version>
+
+        <java-mail.version>1.4.7</java-mail.version>
+
     </properties>
 
     <!-- 配置远程maven仓库 -->
@@ -127,6 +132,20 @@
                 <version>${springboot.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
+            </dependency>
+
+
+            <!-- https://mvnrepository.com/artifact/com.rabbitmq/amqp-client -->
+            <dependency>
+                <groupId>com.rabbitmq</groupId>
+                <artifactId>amqp-client</artifactId>
+                <version>${rabbitmq.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>javax.mail</groupId>
+                <artifactId>mail</artifactId>
+                <version>${java-mail.version}</version>
             </dependency>
 
             <dependency>
