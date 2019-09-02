@@ -59,6 +59,7 @@
         <java-mail.version>1.4.7</java-mail.version>
 
         <mybatis-plus.version>3.2.0</mybatis-plus.version>
+        <dom4j.version>1.6.1</dom4j.version>
 
     </properties>
 
@@ -135,6 +136,15 @@
                 <version>${springboot.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
+            </dependency>
+
+
+
+            <!-- https://mvnrepository.com/artifact/dom4j/dom4j -->
+            <dependency>
+                <groupId>dom4j</groupId>
+                <artifactId>dom4j</artifactId>
+                <version>${dom4j.version}</version>
             </dependency>
 
 
