@@ -1,0 +1,38 @@
+# Compiled class file
+*.class
+
+# Log file
+*.log
+
+#ider file
+.idea/
+
+#maven file
+.mvn/
+mvnw*
+
+# iml file
+*.iml
+
+#git ignore file
+#*/.gitignore
+
+#test file
+*/test/
+
+# Mobile Tools for Java (J2ME)
+.mtj.tmp/
+
+# Package Files #
+*.jar
+*.war
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+#project
+out
+target
+classes
+bin

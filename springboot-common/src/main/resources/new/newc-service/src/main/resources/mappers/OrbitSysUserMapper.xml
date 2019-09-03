@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.car.orbit.orbitservice.mapper.OrbitSysUserMapper" >
+  <resultMap id="BaseResultMap" type="com.car.orbit.orbitservice.entity.OrbitSysUser" >
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="ID" property="id" jdbcType="VARCHAR" />
+    <result column="USERNAME" property="username" jdbcType="VARCHAR" />
+    <result column="PASSWORD" property="password" jdbcType="VARCHAR" />
+    <result column="NAME" property="name" jdbcType="VARCHAR" />
+    <result column="GENDER" property="gender" jdbcType="INTEGER" />
+    <result column="PHONE" property="phone" jdbcType="VARCHAR" />
+    <result column="EMAIL" property="email" jdbcType="VARCHAR" />
+    <result column="MONITOR_CENTER_ID" property="monitorCenterId" jdbcType="VARCHAR" />
+    <result column="ROLE_ID" property="roleId" jdbcType="VARCHAR" />
+    <result column="photo_url" property="photoUrl" jdbcType="VARCHAR" />
+    <result column="DELETED" property="deleted" jdbcType="INTEGER" />
+  </resultMap>
+
+  <resultMap id="InfoMap" type="com.car.orbit.orbitservice.vo.UserSimpleVO" >
+    <id column="ID" property="id" jdbcType="VARCHAR" />
+    <result column="USERNAME" property="username" jdbcType="VARCHAR" />
+    <result column="NAME" property="name" jdbcType="VARCHAR" />
+    <result column="GENDER" property="gender" jdbcType="INTEGER" />
+    <result column="PHONE" property="phone" jdbcType="VARCHAR" />
+    <result column="EMAIL" property="email" jdbcType="VARCHAR" />
+    <result column="photo_url" property="photoUrl" jdbcType="VARCHAR" />
+    <result column="MONITOR_CENTER_ID" property="monitorCenterId" jdbcType="VARCHAR" />
+    <result column="MONITOR_CENTER_NAME" property="monitorCenterName" jdbcType="VARCHAR" />
+    <result column="ROLE_ID" property="roleId" jdbcType="VARCHAR" />
+    <result column="ROLE_NAME" property="roleName" jdbcType="VARCHAR" />
+  </resultMap>
+
+  <resultMap id="SimpleInfoMap" type="com.car.orbit.orbitservice.vo.UserInfoVO" >
+    <id column="ID" property="id" jdbcType="VARCHAR" />
+    <result column="USERNAME" property="username" jdbcType="VARCHAR" />
+    <result column="NAME" property="name" jdbcType="VARCHAR" />
+    <result column="GENDER" property="gender" jdbcType="INTEGER" />
+    <result column="PHONE" property="phone" jdbcType="VARCHAR" />
+    <result column="EMAIL" property="email" jdbcType="VARCHAR" />
+    <result column="photo_url" property="photoUrl" jdbcType="VARCHAR" />
+    <result column="MONITOR_CENTER_ID" property="monitorCenterId" jdbcType="VARCHAR" />
+    <result column="MONITOR_CENTER_NAME" property="monitorCenterName" jdbcType="VARCHAR" />
+    <result column="ROLE_ID" property="roleId" jdbcType="VARCHAR" />
+    <result column="ROLE_NAME" property="roleName" jdbcType="VARCHAR" />
+  </resultMap>
+
+  <select id="queryUserList" parameterType="com.car.orbit.orbitservice.qo.UserQO" resultMap="InfoMap">
+
+    SELECT u.ID,u.USERNAME,u.`NAME`,u.GENDER,u.PHONE,u.EMAIL,u.photo_url,m.ID MONITOR_CENTER_ID,m.NAME MONITOR_CENTER_NAME,r.ID ROLE_ID,r.ROLE_NAME FROM orbit_sys_user u
+      LEFT JOIN orbit_sys_monitor_center m on m.ID=u.MONITOR_CENTER_ID
+      LEFT JOIN orbit_sys_role r on r.ID=u.ROLE_ID
+    WHERE u.DELETED != 2
+    <if test=" monitorCenterId != null and monitorCenterId != ''">
+      and m.id = #{monitorCenterId}
+    </if>
+    <if test=" roleId != null and roleId != ''">
+      and r.id = #{roleId}
+    </if>
+    <if test=" name != null and name != ''">
+      <bind name="name" value="'%' + name + '%'"/>
+      and (u.name like #{name})
+    </if>
+    <if test=" gender != null">
+      and u.gender = #{gender}
+    </if>
+    <if test=" currentUserId != null">
+      and u.id != #{currentUserId}
+    </if>
+      ORDER BY u.USERNAME
+  </select>
+
+  <select id="queryUserIdInSameMonitor" parameterType="String" resultType="String">
+    SELECT ID FROM orbit_sys_user
+    WHERE DELETED != 2 AND MONITOR_CENTER_ID = (SELECT MONITOR_CENTER_ID from orbit_sys_user where ID = #{_parameter, jdbcType=VARCHAR})
+  </select>
+
+  <select id="queryUserInfo" parameterType="String" resultMap="SimpleInfoMap">
+
+    SELECT u.ID,u.USERNAME,u.`NAME`,u.GENDER,u.PHONE,u.EMAIL,u.photo_url,m.ID MONITOR_CENTER_ID,m.NAME MONITOR_CENTER_NAME,r.ID ROLE_ID,r.ROLE_NAME FROM orbit_sys_user u
+    LEFT JOIN orbit_sys_monitor_center m on m.ID=u.MONITOR_CENTER_ID
+    LEFT JOIN orbit_sys_role r on r.ID=u.ROLE_ID
+    WHERE u.DELETED != 2
+    <if test="_parameter != null and _parameter != ''" >
+      and u.id = #{_parameter, jdbcType=VARCHAR}
+    </if>
+  </select>
+</mapper>

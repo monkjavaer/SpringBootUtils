@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>m_parent</artifactId>
+        <groupId>com.m.gis.springboot</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>m_web_new</artifactId>
+
+    <!-- Package as an executable jar -->
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                    <encoding>UTF-8</encoding>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <mainClass>com.m.gis.springboot.Application</mainClass>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.m.gis.springboot</groupId>
+            <artifactId>m_service_common</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.m.gis.springboot</groupId>
+            <artifactId>m_service_district</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.m.gis.springboot</groupId>
+            <artifactId>m_service_poi</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.m.gis.springboot</groupId>
+            <artifactId>m_service_address</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.m.gis.springboot</groupId>
+            <artifactId>m_service_route</artifactId>
+        </dependency>
+    </dependencies>
+
+</project>

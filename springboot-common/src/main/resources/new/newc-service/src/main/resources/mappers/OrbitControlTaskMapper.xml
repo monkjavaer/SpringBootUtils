@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.car.orbit.orbitservice.mapper.OrbitControlTaskMapper">
+  <resultMap id="BaseResultMap" type="com.car.orbit.orbitservice.entity.OrbitControlTask">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="ID" jdbcType="VARCHAR" property="id" />
+    <result column="TASK_NAME" jdbcType="VARCHAR" property="taskName" />
+    <result column="STATUS" jdbcType="INTEGER" property="status" />
+    <result column="TASK_LEVEL" jdbcType="INTEGER" property="taskLevel" />
+    <result column="TASK_DESCRIPTION" jdbcType="VARCHAR" property="taskDescription" />
+    <result column="DEVICES" jdbcType="VARCHAR" property="devices" />
+    <result column="MESSAGE_TYPE" jdbcType="INTEGER" property="messageType" />
+    <result column="RECEIVOR_ID" jdbcType="VARCHAR" property="receivorId" />
+    <result column="START_TIME" jdbcType="TIMESTAMP" property="startTime" />
+    <result column="END_TIME" jdbcType="TIMESTAMP" property="endTime" />
+    <result column="CREATOR" jdbcType="VARCHAR" property="creator" />
+    <result column="CREATOR_ID" jdbcType="VARCHAR" property="creatorId" />
+    <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="DELETED" jdbcType="INTEGER" property="deleted" />
+    <result column="APPROVER" jdbcType="VARCHAR" property="approver" />
+    <result column="APPROVER_ID" jdbcType="VARCHAR" property="approverId" />
+    <result column="APPROVE_TIME" jdbcType="TIMESTAMP" property="approveTime" />
+    <result column="APPROVE_NOTE" jdbcType="VARCHAR" property="approveNote" />
+  </resultMap>
+
+</mapper>

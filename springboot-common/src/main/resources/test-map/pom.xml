@@ -1,0 +1,356 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.m.gis.springboot</groupId>
+    <artifactId>m_parent</artifactId>
+    <packaging>pom</packaging>
+    <version>1.0-SNAPSHOT</version>
+    <modules>
+        <module>m_common</module>
+        <module>m_geo_base</module>
+        <module>m_district</module>
+        <module>m_service_common</module>
+        <module>m_service_district</module>
+        <module>m_service_poi</module>
+        <module>m_service_address</module>
+        <module>m_service_route</module>
+        <module>m_web_heat</module>
+        <module>m_web_new</module>
+    </modules>
+
+    <!-- 版本基本信息 -->
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <java.version>1.8</java.version>
+
+        <!-- 发布依赖包版本 -->
+        <package.version>1.0-SNAPSHOT</package.version>
+
+        <geotools.version>17.0</geotools.version>
+        <jts.version>1.13</jts.version>
+        <mapbox.version>2.2.9</mapbox.version>
+
+        <fastjson.version>1.2.35</fastjson.version>
+        <lang3.version>3.7</lang3.version>
+        <commons-collections.version>3.2.2</commons-collections.version>
+        <commons-io.version>2.5</commons-io.version>
+        <okio.version>1.13.0</okio.version>
+        <okhttp.version>3.9.1</okhttp.version>
+        <springboot.version>2.0.2.RELEASE</springboot.version>
+        <swagger.version>2.2.2</swagger.version>
+
+        <postgres.version>9.4.1212.jre7</postgres.version>
+        <postgis-jdbc.version>2.2.1</postgis-jdbc.version>
+
+        <druid.version>1.1.9</druid.version>
+
+        <ehcache.version>2.9.1</ehcache.version>
+
+        <mybatis-springboot-starter.version>1.3.2</mybatis-springboot-starter.version>
+        <!--<tk-mybatis.version>RELEASE</tk-mybatis.version>-->
+        <tk-mybatis.version>2.1.0</tk-mybatis.version>
+        <pagehelper.version>RELEASE</pagehelper.version>
+
+        <slf4j-api.version>1.7.24</slf4j-api.version>
+        <logback-core.version>1.2.1</logback-core.version>
+        <logback-classic.version>1.2.1</logback-classic.version>
+
+        <junit.version>4.12</junit.version>
+        <mockito.version>2.15.0</mockito.version>
+
+        <guava.version>16.0</guava.version>
+    </properties>
+
+    <!-- 配置远程maven仓库 -->
+    <distributionManagement>
+        <repository>
+            <id>gis-release</id>
+            <url>http://127.0.0.1:8081/nexus/content/repositories/releases/</url>
+        </repository>
+        <snapshotRepository>
+            <id>gis-snapshot</id>
+            <url>http://127.0.0.1:8081/nexus/content/repositories/snapshots/</url>
+        </snapshotRepository>
+    </distributionManagement>
+
+
+    <build>
+        <!--插件管理-->
+        <pluginManagement>
+            <plugins>
+                <!-- compiler settings -->
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>2.3.2</version>
+                    <configuration>
+                        <source>1.8</source>
+                        <target>1.8</target>
+                        <encoding>UTF-8</encoding>
+                    </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-assembly-plugin</artifactId>
+                    <version>3.1.0</version>
+                    <configuration>
+                        <descriptorRefs>
+                            <descriptorRef>jar-with-dependencies</descriptorRef>
+                        </descriptorRefs>
+                    </configuration>
+                </plugin>
+                <!-- springboot maven打包插件 -->
+                <plugin>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-maven-plugin</artifactId>
+                    <version>2.0.2.RELEASE</version>
+                </plugin>
+                <!-- mybatis generator插件 -->
+                <plugin>
+                    <groupId>org.mybatis.generator</groupId>
+                    <artifactId>mybatis-generator-maven-plugin</artifactId>
+                    <version>1.3.5</version>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
+
+
+    <!-- 依赖管理 -->
+    <dependencyManagement>
+        <dependencies>
+            <!-- guava -->
+            <dependency>
+                <groupId>com.google.guava</groupId>
+                <artifactId>guava</artifactId>
+                <version>${guava.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.m.gis.springboot</groupId>
+                <artifactId>m_common</artifactId>
+                <version>${package.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.m.gis.springboot</groupId>
+                <artifactId>m_geo_base</artifactId>
+                <version>${package.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.m.gis.springboot</groupId>
+                <artifactId>m_district</artifactId>
+                <version>${package.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.m.gis.springboot</groupId>
+                <artifactId>m_service_common</artifactId>
+                <version>${package.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.m.gis.springboot</groupId>
+                <artifactId>m_service_district</artifactId>
+                <version>${package.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.m.gis.springboot</groupId>
+                <artifactId>m_service_poi</artifactId>
+                <version>${package.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.m.gis.springboot</groupId>
+                <artifactId>m_service_address</artifactId>
+                <version>${package.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.m.gis.springboot</groupId>
+                <artifactId>m_service_route</artifactId>
+                <version>${package.version}</version>
+            </dependency>
+
+            <!-- Springboot -->
+            <dependency>
+                <!-- Import dependency management from Spring Boot -->
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${springboot.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <!-- Gis工具包 -->
+            <dependency>
+                <groupId>com.vividsolutions</groupId>
+                <artifactId>jts</artifactId>
+                <version>${jts.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.mapbox.mapboxsdk</groupId>
+                <artifactId>mapbox-java-services</artifactId>
+                <version>${mapbox.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.geotools</groupId>
+                <artifactId>gt-api</artifactId>
+                <version>${geotools.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.geotools</groupId>
+                <artifactId>gt-main</artifactId>
+                <version>${geotools.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.geotools</groupId>
+                <artifactId>gt-referencing</artifactId>
+                <version>${geotools.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.geotools</groupId>
+                <artifactId>gt-epsg-hsql</artifactId>
+                <version>${geotools.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.geotools</groupId>
+                <artifactId>gt-epsg-extension</artifactId>
+                <version>${geotools.version}</version>
+            </dependency>
+
+            <!-- fast json -->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>fastjson</artifactId>
+                <version>${fastjson.version}</version>
+            </dependency>
+
+            <!--ehcache-->
+            <dependency>
+                <groupId>net.sf.ehcache</groupId>
+                <artifactId>ehcache</artifactId>
+                <version>${ehcache.version}</version>
+            </dependency>
+
+
+            <!-- common -->
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-lang3</artifactId>
+                <version>${lang3.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>commons-collections</groupId>
+                <artifactId>commons-collections</artifactId>
+                <version>${commons-collections.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>commons-io</groupId>
+                <artifactId>commons-io</artifactId>
+                <version>${commons-io.version}</version>
+            </dependency>
+
+            <!-- http client -->
+            <dependency>
+                <groupId>com.squareup.okio</groupId>
+                <artifactId>okio</artifactId>
+                <version>${okio.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.squareup.okhttp3</groupId>
+                <artifactId>okhttp</artifactId>
+                <version>${okhttp.version}</version>
+            </dependency>
+
+            <!-- swagger -->
+            <dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-swagger2</artifactId>
+                <version>${swagger.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-swagger-ui</artifactId>
+                <version>${swagger.version}</version>
+            </dependency>
+
+
+            <!-- postgis jdbc -->
+            <dependency>
+                <groupId>net.postgis</groupId>
+                <artifactId>postgis-jdbc</artifactId>
+                <version>${postgis-jdbc.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.postgresql</groupId>
+                <artifactId>postgresql</artifactId>
+                <version>${postgres.version}</version>
+            </dependency>
+
+            <!-- druid -->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>druid-spring-boot-starter</artifactId>
+                <version>${druid.version}</version>
+            </dependency>
+
+            <!-- Mybatis -->
+            <dependency>
+                <groupId>org.mybatis.spring.boot</groupId>
+                <artifactId>mybatis-spring-boot-starter</artifactId>
+                <version>${mybatis-springboot-starter.version}</version>
+            </dependency>
+            <!--mapper-->
+            <dependency>
+                <groupId>tk.mybatis</groupId>
+                <artifactId>mapper-spring-boot-starter</artifactId>
+                <version>${tk-mybatis.version}</version>
+            </dependency>
+            <!--pagehelper-->
+            <dependency>
+                <groupId>com.github.pagehelper</groupId>
+                <artifactId>pagehelper-spring-boot-starter</artifactId>
+                <version>${pagehelper.version}</version>
+            </dependency>
+
+
+            <!-- logback used by gis_common/gis_geo_base-->
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-api</artifactId>
+                <version>${slf4j-api.version}</version>
+                <scope>compile</scope>
+            </dependency>
+            <dependency>
+                <groupId>ch.qos.logback</groupId>
+                <artifactId>logback-core</artifactId>
+                <version>${logback-core.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>ch.qos.logback</groupId>
+                <artifactId>logback-classic</artifactId>
+                <version>${logback-classic.version}</version>
+            </dependency>
+
+
+            <!--测试 -->
+            <dependency>
+                <groupId>junit</groupId>
+                <artifactId>junit</artifactId>
+                <version>${junit.version}</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.mockito</groupId>
+                <artifactId>mockito-core</artifactId>
+                <version>${mockito.version}</version>
+                <scope>test</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+
+
+</project>

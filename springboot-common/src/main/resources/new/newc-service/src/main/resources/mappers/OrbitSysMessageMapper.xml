@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.car.orbit.orbitservice.mapper.OrbitSysMessageMapper" >
+  <resultMap id="BaseResultMap" type="com.car.orbit.orbitservice.entity.OrbitSysMessage" >
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="business_id" property="businessId" jdbcType="VARCHAR" />
+    <result column="message_comment" property="messageComment" jdbcType="VARCHAR" />
+    <result column="message_type" property="messageType" jdbcType="INTEGER" />
+    <result column="message_status" property="messageStatus" jdbcType="INTEGER" />
+    <result column="message_time" property="messageTime" jdbcType="TIMESTAMP" />
+    <result column="read_time" property="readTime" jdbcType="TIMESTAMP" />
+    <result column="reader" property="reader" jdbcType="VARCHAR" />
+    <result column="reader_id" property="readerId" jdbcType="VARCHAR" />
+  </resultMap>
+</mapper>

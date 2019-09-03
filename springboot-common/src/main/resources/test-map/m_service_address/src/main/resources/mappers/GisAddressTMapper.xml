@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.m.gis.springboot.mapper.GisAddressTMapper">
+  <resultMap id="BaseResultMap" type="com.m.gis.springboot.po.GisAddressT">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="gid" jdbcType="INTEGER" property="gid" />
+    <result column="geom" jdbcType="OTHER" property="geom" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="district_code" jdbcType="VARCHAR" property="districtCode" />
+    <result column="address" jdbcType="VARCHAR" property="address" />
+    <result column="longitude" jdbcType="DOUBLE" property="longitude" />
+    <result column="latitude" jdbcType="DOUBLE" property="latitude" />
+    <result column="type" jdbcType="VARCHAR" property="type" />
+    <result column="sub_type" jdbcType="VARCHAR" property="subType" />
+    <result column="relate_id" jdbcType="INTEGER" property="relateId" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="data_source" jdbcType="VARCHAR" property="dataSource" />
+    <result column="recorder" jdbcType="VARCHAR" property="recorder" />
+    <result column="remark" jdbcType="VARCHAR" property="remark" />
+  </resultMap>
+
+  <resultMap id="AddressNameResultMap" type="com.m.gis.springboot.vo.GisAddressNameVO">
+    <id column="gid" jdbcType="INTEGER" property="gid" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="address" jdbcType="VARCHAR" property="address" />
+    <result column="district_code" jdbcType="VARCHAR" property="districtCode" />
+    <result column="type" jdbcType="VARCHAR" property="type" />
+    <result column="geom" jdbcType="OTHER" property="geom" />
+  </resultMap>
+
+  <resultMap id="AddressNameLonLatResultMap" type="com.m.gis.springboot.vo.GisAddressNameLonLatVO" extends="AddressNameResultMap">
+    <result column="distance" jdbcType="DOUBLE" property="distance" />
+  </resultMap>
+
+  <sql id="Base_Address_Name_Columns">
+    gid,name,type,district_code,geom,create_time,update_time,recorder,relate_id
+  </sql>
+
+  <sql id="Address_Name_Insert_Columns">
+    name, type, district_code, geom, create_time, update_time, recorder, relate_id
+  </sql>
+
+  <sql id="Address_Name_Columns">
+    gid, name, type, address,district_code, geom
+  </sql>
+
+  <!-- 前缀模糊查询地名 -->
+  <select id="selectLikeAddressName" parameterType="com.m.gis.springboot.qo.GisAddressNameQO" resultMap="AddressNameResultMap">
+    select
+    <include refid="Address_Name_Columns" />
+    from gis_address_name_t
+    where
+    <!-- ilike名字采用大小写无关的策略 -->
+    <![CDATA[name ilike concat(#{name},'%') ]]>
+    <if test=" districtCode != null and districtCode != ''">
+      and district_code like concat(#{districtCode},'%')
+    </if>
+    <if test=" type != null and type.size() > 0 ">
+      and type in
+      <foreach item="item" index="index" collection="type" open="(" separator="," close=")">'${item}'</foreach>
+    </if>
+    order by
+    <![CDATA[name]]>
+  </select>
+
+  <!-- 通过全文检索分词搜索地名 -->
+  <select id="selectFullTextAddressName" parameterType="com.m.gis.springboot.qo.GisAddressNameQO" resultMap="AddressNameResultMap">
+    select
+    <include refid="Address_Name_Columns" />
+    from gis_address_name_t
+    where
+    <![CDATA[to_tsvector(name) @@  to_tsquery(#{searchParam}) ]]>
+    <if test=" districtCode != null and districtCode != ''">
+      and district_code like concat(#{districtCode},'%')
+    </if>
+    <if test=" type != null and type.size() > 0 ">
+      and type in
+      <foreach item="item" index="index" collection="type" open="(" separator="," close=")">'${item}'</foreach>
+    </if>
+    order by
+    <![CDATA[name]]>
+  </select>
+
+  <!-- 相似查询地名 -->
+  <select id="selectSimilarityAddressName" parameterType="com.m.gis.springboot.qo.GisAddressNameQO" resultMap="AddressNameResultMap">
+    select
+    <include refid="Address_Name_Columns" />
+    from gis_address_name_t
+    where
+    <![CDATA[ name <-> #{name} < 0.9  ]]>
+    <if test=" districtCode != null and districtCode != ''">
+      and district_code like concat(#{districtCode},'%')
+    </if>
+    <if test=" type != null and type.size() > 0 ">
+      and type in
+      <foreach item="item" index="index" collection="type" open="(" separator="," close=")">'${item}'</foreach>
+    </if>
+    order by
+    <![CDATA[ name <-> #{name}  ]]>
+  </select>
+
+  <!-- 经纬度匹配查询地址名 -->
+  <select id="selectAddressNameByLonLatDistance" parameterType="com.m.gis.springboot.qo.GisAddressNameLonLatQO" resultMap="AddressNameLonLatResultMap">
+    select
+    <include refid="Address_Name_Columns" />
+    ,st_distance(geom::geography,ST_SetSRID(st_point(#{longitude},#{latitude}),4326)::geography) as distance
+    from gis_address_name_t
+    where
+    st_intersects(geom,st_buffer(ST_SetSRID(st_makepoint(#{longitude},#{latitude}),4326), #{tolerance}))
+    <if test=" type != null and type.size() > 0 ">
+      and type in
+      <foreach item="item" index="index" collection="type" open="(" separator="," close=")">'${item}'</foreach>
+    </if>
+    <if test="districtCode != null and districtCode != ''">
+      and district_code like concat(#{districtCode},'%')
+    </if>
+    order by st_distance(geom,ST_SetSRID(st_point(#{longitude},#{latitude}),4326)) limit 1;
+  </select>
+
+  <!-- 根据经纬度获取最近的道路名 -->
+  <select id="selectRoadNameByLonLatDistance" parameterType="com.m.gis.springboot.qo.GisAddressNameLonLatQO" resultMap="AddressNameLonLatResultMap">
+      SELECT gid,NAME,	st_geomfromewkt(geom) , ST_Distance (
+          ST_Transform(geom,3857),
+          ST_Transform(ST_SetSRID ( ST_MakePoint (#{longitude},#{latitude}), 4326 ),3857)) AS distance
+      FROM gis_road_l
+      ORDER BY distance LIMIT 1;
+  </select>
+
+  <select id="selectAddressByNameTypeLonLatTolerance" resultMap="BaseResultMap">
+      select
+      <include refid="Base_Address_Name_Columns" />
+      from gis_address_name_t
+      where
+        st_intersects(geom,st_buffer(ST_SetSRID(st_makepoint(#{coordinate.longitude}, #{coordinate.latitude}),4326), #{tolerance}))
+        <if test="name != null and name != ''">
+          and name like #{name}
+        </if>
+        <if test="type != null and type != ''">
+          and type like #{type}
+        </if>
+  </select>
+
+
+  <insert id="insertList" parameterType="List">
+    INSERT INTO gis_address_name_t(
+    <include refid="Address_Name_Insert_Columns" />
+    )
+    VALUES
+    <foreach collection="list" item="item" separator=",">
+      (#{item.name},#{item.type},#{item.districtCode},CONCAT('SRID=4326;',#{item.geom}),#{item.createTime},#{item.updateTime},#{item.recorder},#{item.relateId})
+    </foreach>
+  </insert>
+
+
+  <update id="updateByKey" parameterType="com.m.gis.springboot.po.GisAddressT">
+    update gis_address_name_t set
+    name = #{name},
+    type = #{type},
+    district_code = #{districtCode},
+    geom = CONCAT('SRID=4326;',#{geom}),
+    create_time = #{createTime},
+    update_time = #{updateTime},
+    recorder = #{recorder},
+    relate_id = #{relateId}
+    where gid = #{gid};
+  </update>
+
+</mapper>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.car.orbit.orbitservice.mapper.OrbitSysConfigMapper" >
+  <resultMap id="BaseResultMap" type="com.car.orbit.orbitservice.entity.OrbitSysConfig" >
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="ID" property="id" jdbcType="VARCHAR" />
+    <result column="USER_ID" property="userId" jdbcType="VARCHAR" />
+    <result column="AUTHORITY_IDSTR" property="authorityIdstr" jdbcType="VARCHAR" />
+    <result column="TOPIC" property="topic" jdbcType="INTEGER" />
+    <result column="LANGUAGE" property="language" jdbcType="INTEGER" />
+  </resultMap>
+</mapper>

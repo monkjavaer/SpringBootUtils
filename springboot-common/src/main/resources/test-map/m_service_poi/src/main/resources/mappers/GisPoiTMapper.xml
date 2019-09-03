@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.m.gis.springboot.mapper.GisPoiTMapper">
+  <resultMap id="BaseResultMap" type="com.m.gis.springboot.po.GisPoiT">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="gid" jdbcType="INTEGER" property="gid" />
+    <result column="geom" jdbcType="OTHER" property="geom" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="type_code" jdbcType="VARCHAR" property="typeCode" />
+    <result column="remark" jdbcType="VARCHAR" property="remark" />
+    <result column="address" jdbcType="VARCHAR" property="address" />
+    <result column="telephone" jdbcType="VARCHAR" property="telephone" />
+    <result column="longitude" jdbcType="DOUBLE" property="longitude" />
+    <result column="latitude" jdbcType="DOUBLE" property="latitude" />
+    <result column="info" jdbcType="VARCHAR" property="info" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="recorder" jdbcType="VARCHAR" property="recorder" />
+    <result column="district_code" jdbcType="VARCHAR" property="districtCode" />
+    <result column="visible_zoom" jdbcType="INTEGER" property="visibleZoom" />
+    <result column="data_source" jdbcType="VARCHAR" property="dataSource" />
+  </resultMap>
+
+
+  <resultMap id="PoiResultMap" type="com.m.gis.springboot.vo.PoiVO">
+    <id column="gid" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="address" jdbcType="VARCHAR" property="address" />
+    <result column="telephone" jdbcType="VARCHAR" property="telephone" />
+    <result column="type_code" jdbcType="VARCHAR" property="type" />
+    <result column="district_code" jdbcType="VARCHAR" property="districtCode" />
+    <result column="longitude" jdbcType="DOUBLE" property="longitude" />
+    <result column="latitude" jdbcType="DOUBLE" property="latitude" />
+    <result column="remark" jdbcType="VARCHAR" property="note" />
+  </resultMap>
+
+  <sql id="Poi_Column_List">
+    gid, name, address, telephone, type_code, district_code, remark, longitude, latitude
+  </sql>
+
+  <select id="selectByZone" parameterType="com.m.gis.springboot.qo.GisPoiZoneQO" resultMap="PoiResultMap">
+    /*keep orderby*/select
+    <include refid="Poi_Column_List" />
+    from gis_poi_t
+    where 1=1
+    <if test=" poiName != null and poiName != ''">
+      and name like concat('%',#{poiName},'%')
+    </if>
+    <if test=" poiTypes != null and poiTypes.size() > 0 ">
+      and <foreach item="item" index="index" collection="poiTypes" open="(" separator="or" close=")"> type_code like '${item}%' </foreach>
+    </if>
+    <if test=" poiZone != null and poiZone != ''">
+      and st_within(geom,st_geomfromewkt(#{poiZone})) order by ST_Distance(geom, ST_Centroid(st_geomfromewkt(#{poiZone})))
+    </if>
+
+  </select>
+
+</mapper>
+
+
+
