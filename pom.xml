@@ -14,6 +14,7 @@
         <module>springboot-myjdbc</module>
         <module>springboot-mydruid</module>
         <module>springboot-mybatis-plus</module>
+        <module>springboot-transactional</module>
     </modules>
 
     <!-- 版本基本信息 -->
