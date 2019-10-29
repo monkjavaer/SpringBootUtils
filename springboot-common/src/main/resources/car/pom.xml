@@ -88,7 +88,7 @@
 
         <kafka-clients.version>0.10.0.0</kafka-clients.version>
 
-        <netty.version>4.1.2.Final</netty.version>
+        <netty.version>4.1.42.Final</netty.version>
         <httpclient.version>3.1</httpclient.version>
         <mail.version>1.6.2</mail.version>
 
