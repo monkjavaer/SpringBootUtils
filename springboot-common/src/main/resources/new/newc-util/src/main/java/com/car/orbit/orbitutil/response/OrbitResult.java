@@ -4,7 +4,7 @@ import com.car.orbit.orbitutil.exception.OrbitException;
 import com.car.orbit.orbitutil.tools.JsonUtils;
 
 /**
- * @author wujiong
+ * @author monkjavaer
  * @version V1.0
  * @Title: OrbitResult.java
  * @Package com.car.gis.springboot.common
