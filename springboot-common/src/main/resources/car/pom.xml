@@ -47,7 +47,7 @@
         <rabbitmq.version>3.6.0</rabbitmq.version>
         <!-- spring -->
         <springframework.version>4.1.9.RELEASE</springframework.version>
-        <jackson.version>2.8.7</jackson.version>
+        <jackson.version>2.10.1</jackson.version>
         <freemarker.version>2.3.23</freemarker.version>
         <!-- fastDFS client -->
         <fastdfs-client.version>1.27</fastdfs-client.version>
