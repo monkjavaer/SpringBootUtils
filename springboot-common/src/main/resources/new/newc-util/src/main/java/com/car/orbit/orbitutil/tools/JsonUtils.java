@@ -13,7 +13,7 @@ import java.util.List;
  * @Title: JsonUtil.java
  * @Package com.car.gis.springboot.common.utils
  * @Description: 封装json工具类
- * @author wujiong
+ * @author monkjavaer
  * @date 2017年8月26日 下午12:32:43
  * @version V1.0
  */

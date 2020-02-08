@@ -13,7 +13,7 @@ import java.util.*;
 
 /**
  * CreateDate：2018/5/22 <br/>
- * Author：NieLixiang <br/>
+ * Author：monkjavaer <br/>
  * Description: utils for redis operate(all content will be stored in json format)
  **/
 public class RedisClient {

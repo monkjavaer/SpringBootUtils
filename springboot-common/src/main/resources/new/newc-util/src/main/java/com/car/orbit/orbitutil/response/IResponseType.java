@@ -2,7 +2,7 @@ package com.car.orbit.orbitutil.response;
 
 /**
  * CreateDate：2018/4/26 <br/>
- * Author：wenliang <br/>
+ * Author：monkjavaer <br/>
  * Description: common return code for each project
  **/
 public interface IResponseType {

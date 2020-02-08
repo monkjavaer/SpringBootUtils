@@ -11,7 +11,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * CreateDate: 2019-4-1 <br/>
- * Author: dujunlin <br/>
+ * Author: monkjavaer <br/>
  * Description: 顺序分区的Partitioner，与传入的key无关
  * Version: 1.0
  **/

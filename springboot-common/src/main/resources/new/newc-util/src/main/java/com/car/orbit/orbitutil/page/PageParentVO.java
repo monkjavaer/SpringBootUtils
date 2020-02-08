@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 /**
  * CreateDate: 2018/5/11 <br/>
- * Author: wenliang <br/>
+ * Author: monkjavaer <br/>
  * Description: 分页公共对象
  */
 public class PageParentVO implements Serializable{

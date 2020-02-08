@@ -4,7 +4,7 @@ import java.util.Random;
 
 /**
  * CreateDate：2018/5/22 <br/>
- * Author：NieLixiang <br/>
+ * Author：monkjavaer <br/>
  * Description: utils to generate random String with given length
  **/
 public class RandomStrGenerator {

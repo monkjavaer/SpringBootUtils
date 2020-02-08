@@ -12,7 +12,7 @@ import java.security.SecureRandom;
 
 /**
  * CreateDate：2018/5/15 <br/>
- * Author：NieLixiang <br/>
+ * Author：monkjavaer <br/>
  * Description: encrypt & decrypt by DES
  **/
 public class DESUtils {

@@ -2,7 +2,7 @@ package com.car.orbit.orbitutil.response;
 
 /**
  * CreateDate：2018/8/29 <br/>
- * Author：wenliang <br/>
+ * Author：monkjavaer <br/>
  * Description: store response type information of insight guide project
  **/
 public enum ResponseType implements IResponseType {

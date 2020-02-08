@@ -7,7 +7,7 @@ import java.util.Date;
 
 /**
  * CreateDate：2018/5/17 <br/>
- * Author：NieLixiang <br/>
+ * Author：monkjavaer <br/>
  * Description: token related utils
  **/
 public class TokenUtils {
