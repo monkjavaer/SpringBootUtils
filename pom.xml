@@ -15,6 +15,8 @@
         <module>springboot-mydruid</module>
         <module>springboot-mybatis-plus</module>
         <module>springboot-transactional</module>
+        <module>springboot-security</module>
+        <module>springboot-security</module>
     </modules>
 
     <!-- 版本基本信息 -->
@@ -32,7 +34,7 @@
         <commons-io.version>2.5</commons-io.version>
         <okio.version>1.13.0</okio.version>
         <okhttp.version>3.9.1</okhttp.version>
-        <springboot.version>2.1.4.RELEASE</springboot.version>
+        <springboot.version>2.2.2.RELEASE</springboot.version>
         <swagger.version>2.2.2</swagger.version>
 
         <postgres.version>9.4.1212.jre7</postgres.version>
