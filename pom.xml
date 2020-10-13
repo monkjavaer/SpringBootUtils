@@ -53,7 +53,7 @@
         <logback-core.version>1.2.1</logback-core.version>
         <logback-classic.version>1.2.1</logback-classic.version>
 
-        <junit.version>4.12</junit.version>
+        <junit.version>4.13.1</junit.version>
 
         <solr.version>6.6.0</solr.version>
 
