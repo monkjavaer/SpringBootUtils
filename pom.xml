@@ -39,7 +39,7 @@
 
         <postgres.version>9.4.1212.jre7</postgres.version>
         <postgis-jdbc.version>2.2.1</postgis-jdbc.version>
-        <mysql.version>8.0.17</mysql.version>
+        <mysql.version>8.0.28</mysql.version>
         <druid.version>1.1.10</druid.version>
 
         <ehcache.version>2.9.1</ehcache.version>
